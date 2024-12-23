@@ -1,0 +1,10 @@
+services:
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    environment:
+      - DISPLAY=:99.0
+    entrypoint: ["pytest", "--alluredir=/app/allure-results", "--maxfail=0"]
